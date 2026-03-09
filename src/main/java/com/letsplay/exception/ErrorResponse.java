@@ -16,4 +16,5 @@ public class ErrorResponse {
     private String error;
     private String message;
     private Map<String, String> validationErrors;
+    private String path;
 }
