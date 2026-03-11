@@ -40,35 +40,6 @@ The server starts on `http://localhost:8080`.
 | POST   | `/api/auth/register` | Register a new user |
 | POST   | `/api/auth/login`    | Login & get JWT     |
 
-**Register Request:**
-```json
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securePass123"
-}
-```
-
-**Login Request:**
-```json
-{
-  "email": "john@example.com",
-  "password": "securePass123"
-}
-```
-
-**Auth Response:**
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiJ9...",
-  "id": "64abc...",
-  "name": "John Doe",
-  "email": "john@example.com",
-  "role": "USER"
-}
-```
-
----
 
 ### Products (`/api/products`)
 
@@ -81,16 +52,6 @@ The server starts on `http://localhost:8080`.
 | PUT    | `/api/products/{id}`          | ✅            | Owner/Admin  |
 | DELETE | `/api/products/{id}`          | ✅            | Owner/Admin  |
 
-**Create Product Request:**
-```json
-{
-  "name": "Gaming Mouse",
-  "description": "High DPI gaming mouse",
-  "price": 49.99
-}
-```
-
----
 
 ### Users (`/api/users`) — Admin Only
 
@@ -154,14 +115,4 @@ src/main/java/com/letsplay/
 ├── repository/       # MongoRepository interfaces
 ├── security/         # JWT service, filter, UserDetailsService
 └── service/          # Business logic (Auth, User, Product)
-```
-
----
-
-## Creating an Admin
-
-To create an admin, directly insert a user with `"role": "ADMIN"` in MongoDB, or update an existing user:
-
-```js
-db.users.updateOne({ email: "admin@example.com" }, { $set: { role: "ADMIN" } })
 ```
