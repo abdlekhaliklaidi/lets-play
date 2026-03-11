@@ -44,11 +44,6 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.UNAUTHORIZED, "Invalid email or password");
     }
 
-    // @ExceptionHandler(AccessDeniedException.class)
-    // public ResponseEntity<ErrorResponse> handleAccessDenied(AccessDeniedException ex) {
-    //     return buildResponse(HttpStatus.FORBIDDEN, "Access denied");
-    // }
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
